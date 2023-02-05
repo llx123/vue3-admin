@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="music-home">
     <Menu />
+    <router-view></router-view>
   </div>
 </template>
 
@@ -8,4 +9,8 @@
 import Menu from "@/views/layout/menu/index.vue";
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.music-home {
+  
+}
+</style>

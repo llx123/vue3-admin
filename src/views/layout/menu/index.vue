@@ -1,12 +1,11 @@
 <template>
   <div>
-    {{ msg }}
+    <MenuList />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-const msg = ref("menu");
+import MenuList from "./MenuList.vue";
 </script>
 
 <style scoped></style>
