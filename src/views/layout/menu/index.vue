@@ -1,11 +1,12 @@
 <template>
   <div>
-    <Menu />
+    {{ msg }}
   </div>
 </template>
 
 <script setup lang="ts">
-import Menu from "@/views/layout/menu/index.vue";
+import { ref } from "vue";
+const msg = ref("menu");
 </script>
 
 <style scoped></style>
