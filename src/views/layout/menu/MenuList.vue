@@ -8,7 +8,7 @@
         :key="cIndex"
       >
         <router-link :to="{ name: menu.key }">
-          <Component :is="menu.icon" />{{ menu.name }}
+          <IconPark :icon="menu.icon" />{{ menu.name }}
         </router-link>
       </div>
     </template>
@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { Comment } from "vue";
+import IconPark from "@/components/common/IconPark.vue";
 import { getMenuList } from "./menuList";
 
 const menusList = getMenuList();

@@ -11,6 +11,6 @@ import Menu from "@/views/layout/menu/index.vue";
 
 <style scoped lang="scss">
 .music-home {
-  
+  display: flex;
 }
 </style>
