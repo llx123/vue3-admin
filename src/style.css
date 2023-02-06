@@ -17,9 +17,6 @@ a {
   color: #333;
   text-decoration: inherit;
 }
-a:hover {
-  color: #31c27c;
-}
 
 body {
   margin: 0;
@@ -55,6 +52,5 @@ button:focus-visible {
 
 #app {
   margin: 0 auto;
-  text-align: center;
 }
 
