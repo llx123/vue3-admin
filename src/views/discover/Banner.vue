@@ -1,12 +1,9 @@
 <template>
   <div class="banner-swiper">
     <swiper :slides-per-view="num" :grap-cursor="true">
-      <SwiperSlide>111</SwiperSlide>
-      <SwiperSlide>222</SwiperSlide>
-      <SwiperSlide>333</SwiperSlide>
-      <SwiperSlide>444</SwiperSlide>
-      <SwiperSlide>555</SwiperSlide>
-      <SwiperSlide>666</SwiperSlide>
+      <SwiperSlide v-for="(item, index) in banners" :key="index">
+        {{ index }}
+      </SwiperSlide>
     </swiper>
   </div>
 </template>
@@ -14,8 +11,11 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
+import { useBannerStore } from "@/store/banner";
 
-const num = 4
+const num = 4;
+
+const { banners } = useBannerStore();
 </script>
 
 <style scoped lang="scss">

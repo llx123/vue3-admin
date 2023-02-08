@@ -1,29 +1,7 @@
-import axios, { type InternalAxiosRequestConfig } from 'axios';
+import http from './http'
+import { IBanner } from '@/models/interface'
 
-axios.defaults.baseURL = 'http://localhost:3000/';
 
-axios.interceptors.request.use((config: InternalAxiosRequestConfig) => config)
-
-axios.interceptors.response.use(res => {
-  return res;
-}, err => {
-  return Promise.reject(err)
-})
-
-interface IHttp {
-  get<T>(url: string, params?: unknown): Promise<T>
+export async function getBanner() {
+  return await http.get<{ banner: IBanner[] }>('/banner', { type: 1 })
 }
-
-const http: IHttp = {
-  get(url, params) {
-    return new Promise((resolve, reject) => {
-      axios.get(url, { params }).then(res => {
-        resolve(res.data)
-      }).catch(err => {
-        reject(err)
-      })
-    })
-  }
-}
-
-export default http
