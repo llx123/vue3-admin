@@ -1,8 +1,8 @@
 <template>
   <div class="banner-swiper">
-    <swiper :slides-per-view="num" :grap-cursor="true">
+    <swiper :slides-per-view="num" :grap-cursor="true" :space-between="20">
       <SwiperSlide v-for="(item, index) in banners" :key="index">
-        {{ index }}
+        <div class="item-img">{{ index }}</div>
       </SwiperSlide>
     </swiper>
   </div>
@@ -12,15 +12,30 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import { useBannerStore } from "@/store/banner";
+import { storeToRefs } from "pinia";
+import { onMounted } from "vue";
 
 const num = 4;
 
-const { banners } = useBannerStore();
+// 解构的数据具有响应式
+const { banners } = storeToRefs(useBannerStore());
+
+onMounted(async () => {
+  // await fn
+})
+
 </script>
 
 <style scoped lang="scss">
 .banner-swiper {
   width: 80vw;
   margin: 0 auto;
+  .item-img {
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #ccc;
+  }
 }
 </style>
