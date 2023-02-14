@@ -1,6 +1,5 @@
 <template>
   <div>
-    discover
     <Banner />
   </div>
 </template>

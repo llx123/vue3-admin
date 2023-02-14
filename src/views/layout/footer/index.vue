@@ -2,8 +2,9 @@
   <div class="play-btns">
     <IconPark :icon="GoStart" />
     <IconPark
-      :icon="isPlay ? Play : PauseOne"
+      :icon="isPause ? Play : PauseOne"
       size="25"
+      theme="filled"
       class="btn-play"
       @click="togglePlay"
     />
@@ -14,13 +15,11 @@
 <script setup lang="ts">
 import { GoStart, Play, PauseOne, GoEnd } from "@icon-park/vue-next";
 import IconPark from "@/components/common/IconPark.vue";
-import { ref } from "vue";
+import { usePlayerStore } from "@/store/player";
+import { toRefs } from "vue";
 
-const isPlay = ref(false);
 
-function togglePlay() {
-  isPlay.value = !isPlay.value;
-}
+const { togglePlay, isPause } = toRefs(usePlayerStore());
 </script>
 
 <style scoped lang="scss">
@@ -29,6 +28,7 @@ function togglePlay() {
   justify-content: center;
   align-items: center;
   .btn-play {
+    margin: 0 8px;
     color: #31c27c;
   }
 }
