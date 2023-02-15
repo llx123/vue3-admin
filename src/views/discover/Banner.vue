@@ -2,7 +2,7 @@
   <div class="banner-swiper">
     <swiper :slides-per-view="num" :grap-cursor="true" :space-between="20">
       <SwiperSlide v-for="(item, index) in banners" :key="index">
-        <div class="item-img" @click="handle(item)">{{ index }}</div>
+        <div class="item-img" @click="play(item)">{{ index }}</div>
       </SwiperSlide>
     </swiper>
   </div>
@@ -26,9 +26,6 @@ onMounted(async () => {
   // await fn
 });
 
-function handle({ bannerId }: { bannerId: number }) {
-  play(bannerId);
-}
 </script>
 
 <style scoped lang="scss">
@@ -41,6 +38,7 @@ function handle({ bannerId }: { bannerId: number }) {
     border-radius: 5px;
     text-align: center;
     background-color: #ccc;
+    cursor: pointer;
   }
 }
 </style>

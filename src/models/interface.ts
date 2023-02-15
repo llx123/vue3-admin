@@ -1,5 +1,6 @@
 export interface IBanner {
-  pic: string,
-  bannerId: number,
+  pic?: string,
+  bannerId?: number,
+  author: string,
   [propName: string]: any
 }
